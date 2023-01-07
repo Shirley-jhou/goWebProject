@@ -1,0 +1,35 @@
+test_admin:
+  port: 8080
+  auth_timeout: 0
+  keep_opt_log_day: 0 #操作紀錄log
+  page_size: 20
+
+database:
+  # redis:
+  #   nodes:
+  #     - "172.31.45.1:7000"
+  #     - "172.31.45.1:7001"
+  #     - "172.31.45.1:7002"
+  #     - "172.31.45.1:7003"
+  #     - "172.31.45.1:7004"
+  #     - "172.31.45.1:7005"
+  #   password: redis123
+  mysql:
+    maxIdleConnection: 10 #最大閒置連線數
+    maxOpenConnection: 100 # 最大開啟連線數
+    connections:
+      - name: "Local"
+        write:
+          host: "127.0.0.1" #資料庫host
+          port: 3306 # 資料庫port
+          username: "root" # 使用者名稱
+          password: "" # 密碼
+          database: "test" # 資料庫名稱
+          charset: "utf8" # charset
+        read:
+          - host: "127.0.0.1" #資料庫host
+            port: 3306 # 資料庫port
+            username: "root" # 使用者名稱
+            password: "" # 密碼
+            database: "test" # 資料庫名稱
+            charset: "utf8" # charset
